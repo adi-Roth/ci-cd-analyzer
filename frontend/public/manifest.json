@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "CI Debugger",
+  "version": "1.0",
+  "description": "Summarizes CI/CD pipeline errors from GitHub Actions.",
+  "permissions": ["storage", "activeTab"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "index.html"
+  }
+}
