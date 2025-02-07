@@ -7,7 +7,8 @@ from .config import LDAP_SERVER_URL
 
 def get_ldap_connection(user_dn: str, password: str):
     """
-    Establish and return an LDAP connection using the provided user distinguished name (DN) and password.
+    Establish and return an LDAP connection 
+    using the provided user distinguished name (DN) and password.
 
     Args:
         user_dn (str): The distinguished name of the user for LDAP authentication.
