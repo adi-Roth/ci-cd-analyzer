@@ -16,8 +16,10 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
+        apt install tree
         python -m pip install --upgrade pip
-        pip install -r ../backend/requirements.txt
+        ls -la
+        tree
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
