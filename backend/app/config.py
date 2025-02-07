@@ -1,5 +1,6 @@
-from datetime import timedelta
-
+"""
+This module defines all the configuration for the app's modules
+"""
 # JWT configuration
 SECRET_KEY = "ThisIsMyJWTPasswordToVerify"  # Use a secure secret in production!
 ALGORITHM = "HS256"
