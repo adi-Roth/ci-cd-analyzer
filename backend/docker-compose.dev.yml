@@ -13,5 +13,22 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
+  ldap:
+    image: osixia/openldap:latest
+    container_name: openldap
+    hostname: openldap
+    environment:
+      LDAP_ORGANISATION: "Example Inc."
+      LDAP_DOMAIN: "example.com"
+      LDAP_ADMIN_PASSWORD: "admin"
+    ports:
+      - "389:389"
+      - "636:636"
+    volumes:
+      - ldapdata:/var/lib/ldap
+      - ldapconfig:/etc/ldap/slapd.d
+
 volumes:
   pgdata:
+  ldapdata:
+  ldapconfig:
