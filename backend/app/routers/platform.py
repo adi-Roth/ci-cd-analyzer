@@ -39,12 +39,10 @@ def read_platform(platform_name: str, db: Session = Depends(get_db)):
 
     Args:
         platform_name (str): the platform's name
-        
         db (Session): the db's session if the db is up
 
     Returns:
         200 - details about platform_name
-        
         404 - platform_name is not exist error
     """
     platform = get_platform_by_name(platform_name)
@@ -64,14 +62,11 @@ def update_platform_route(platform_name: str, update_data: dict, db: Session = D
     
     Args:
         platform_name (str): the platform's name
-        
         update_data (dict): the data's platform for the update
-        
         db (Session): the db's session if the db is up
 
     Returns:
         200 - platform_name is updated
-        
         404 - platform_name is not exist error
     """
     updated = update_platform(platform_name, update_data)
