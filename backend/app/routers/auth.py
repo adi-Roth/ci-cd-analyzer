@@ -23,6 +23,7 @@ async def login(user: User, response: Response):
 
     Args:
         user (User): The user object containing the username and password.
+        
         response (Response): The HTTP response object used to set the authentication cookie.
 
     Returns:
