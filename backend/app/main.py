@@ -1,6 +1,7 @@
 """
 This module represent the main for the application
 """
+# pylint: disable=missing-final-newline
 from fastapi import FastAPI
 from .database import init_db
 from .routers import auth, platform
@@ -11,5 +12,3 @@ init_db()
 
 app.include_router(auth.router)
 app.include_router(platform.router)
-
-# Ensure there is a newline at the end of the file.

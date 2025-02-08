@@ -1,6 +1,7 @@
 """
 This module defines all the models for the application
 """
+# pylint: disable=missing-final-newline
 from pydantic import BaseModel, Field
 class User(BaseModel):
     """
