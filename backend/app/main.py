@@ -11,3 +11,5 @@ init_db()
 
 app.include_router(auth.router)
 app.include_router(platform.router)
+
+# Ensure there is a newline at the end of the file.
