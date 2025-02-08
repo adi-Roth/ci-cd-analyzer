@@ -17,7 +17,7 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
 # pylint: disable=too-few-public-methods
-class CI_CD_Platform(Base):
+class CiCdPlatform(Base):
     """Represents a Continuous Integration/Continuous Deployment platform configuration."""
     __tablename__ = "ci_cd_platforms"
 
@@ -30,11 +30,11 @@ def init_db():
     """Initialize the database and add default platforms if not exist."""
     Base.metadata.create_all(bind=engine)
     session = SessionLocal()
-    if not session.query(CI_CD_Platform).first():
+    if not session.query(CiCdPlatform).first():
         default_platforms = [
-            CI_CD_Platform(name="GitHub Actions", url="https://github.com", apikey="default_key"),
-            CI_CD_Platform(name="GitLab CI", url="https://gitlab.com", apikey="default_key"),
-            CI_CD_Platform(name="Jenkins", url="https://jenkins.io", apikey="default_key")
+            CiCdPlatform(name="GitHub Actions", url="https://github.com", apikey="default_key"),
+            CiCdPlatform(name="GitLab CI", url="https://gitlab.com", apikey="default_key"),
+            CiCdPlatform(name="Jenkins", url="https://jenkins.io", apikey="default_key")
         ]
         session.add_all(default_platforms)
         session.commit()
@@ -43,10 +43,10 @@ def init_db():
 def update_platform(identifier, new_values):
     """Update a platform's attributes by ID or name."""
     session = SessionLocal()
-    platform = session.query(CI_CD_Platform).filter(
-        (CI_CD_Platform.id == identifier) | (CI_CD_Platform.name == identifier)
+    platform = session.query(CiCdPlatform).filter(
+        (CiCdPlatform.id == identifier) | (CiCdPlatform.name == identifier)
     ).first()
-    
+
     if platform:
         for key, value in new_values.items():
             if hasattr(platform, key):
@@ -60,13 +60,13 @@ def update_platform(identifier, new_values):
 def get_all_platforms():
     """Retrieve all CI/CD platforms."""
     session = SessionLocal()
-    platforms = session.query(CI_CD_Platform).all()
+    platforms = session.query(CiCdPlatform).all()
     session.close()
     return platforms
 
 def get_platform_by_name(name):
     """Retrieve a platform by name."""
     session = SessionLocal()
-    platform = session.query(CI_CD_Platform).filter(CI_CD_Platform.name == name).first()
+    platform = session.query(CiCdPlatform).filter(CiCdPlatform.name == name).first()
     session.close()
     return platform

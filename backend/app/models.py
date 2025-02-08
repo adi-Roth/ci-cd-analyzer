@@ -18,4 +18,3 @@ class User(BaseModel):
         pattern=r'^(?:[dD][pP]|[eE]0)\d{5}$'
     )
     password: str = Field(..., min_length=1)
-

@@ -16,6 +16,7 @@ def get_db():
     finally:
         db.close()
 
+# pylint: disable=unused-argument
 @router.get("/platforms")
 def read_platforms(db: Session = Depends(get_db)):
     """
@@ -30,6 +31,7 @@ def read_platforms(db: Session = Depends(get_db)):
     platforms = get_all_platforms()
     return [{"id": p.id, "name": p.name, "url": p.url, "apikey": p.apikey} for p in platforms]
 
+# pylint: disable=unused-argument
 @router.get("/platform/{platform_name}")
 def read_platform(platform_name: str, db: Session = Depends(get_db)):
     """
@@ -46,8 +48,13 @@ def read_platform(platform_name: str, db: Session = Depends(get_db)):
     platform = get_platform_by_name(platform_name)
     if not platform:
         raise HTTPException(status_code=404, detail="Platform not found")
-    return {"id": platform.id, "name": platform.name, "url": platform.url, "apikey": platform.apikey}
+    return {"id": platform.id,
+            "name": platform.name,
+            "url": platform.url,
+            "apikey": platform.apikey
+    }
 
+# pylint: disable=unused-argument
 @router.put("/platform/{platform_name}")
 def update_platform_route(platform_name: str, update_data: dict, db: Session = Depends(get_db)):
     """
