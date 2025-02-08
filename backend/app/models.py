@@ -2,7 +2,6 @@
 This module defines all the models for the application
 """
 from pydantic import BaseModel, Field
-
 class User(BaseModel):
     """
     Represents a user with a username and password.
@@ -19,3 +18,4 @@ class User(BaseModel):
         pattern=r'^(?:[dD][pP]|[eE]0)\d{5}$'
     )
     password: str = Field(..., min_length=1)
+
