@@ -16,7 +16,9 @@ engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
+# pylint: disable=too-few-public-methods
 class CI_CD_Platform(Base):
+    """Represents a Continuous Integration/Continuous Deployment platform configuration."""
     __tablename__ = "ci_cd_platforms"
 
     id = Column(Integer, primary_key=True, index=True)
