@@ -70,3 +70,11 @@ def get_platform_by_name(name):
     platform = session.query(CiCdPlatform).filter(CiCdPlatform.name == name).first()
     session.close()
     return platform
+
+def get_db():
+    """Open a db session"""
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
