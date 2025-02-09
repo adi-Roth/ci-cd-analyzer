@@ -1,9 +1,8 @@
 """Unitests for app/routers/*.py"""
 from fastapi.testclient import TestClient
-from unittest.mock import patch
 from app.main import app
 from app.routers.platform import get_db
-from app.tests.mock_data import mock_authenticate_with_ldap, override_get_db
+from app.tests.mock_data import override_get_db
 
 app.dependency_overrides[get_db] = override_get_db
 
