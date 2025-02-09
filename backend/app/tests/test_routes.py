@@ -9,12 +9,6 @@ app.dependency_overrides[get_db] = override_get_db
 
 client = TestClient(app)
 
-@pytest.fixture
-def override_ldap_auth():
-    """Override get_ldap_connection() func with a mock func"""
-    with patch("app.dependencies.get_ldap_connection", new=mock_authenticate_with_ldap):
-        yield
-
 def test_ldap_route_success(override_ldap_auth):
     """Testing login to ldap server, result need to be 200"""
     user_data = {"username": "e029863", "password": "e029863"}
