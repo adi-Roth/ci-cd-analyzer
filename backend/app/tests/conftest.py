@@ -6,7 +6,8 @@ from app.tests.mock_data import mock_authenticate_with_ldap
 @pytest.fixture(scope="function", autouse=True)
 def override_ldap_auth():
     """Mock `get_ldap_connection` to use our fake LDAP authentication function."""
-    with patch("app.dependencies.get_ldap_connection", new=AsyncMock(side_effect=mock_authenticate_with_ldap)):
+    with patch("app.dependencies.get_ldap_connection",
+               new=AsyncMock(side_effect=mock_authenticate_with_ldap)):
         yield
 
 @pytest.fixture(scope="session", autouse=True)
