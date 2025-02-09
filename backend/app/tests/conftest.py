@@ -1,6 +1,6 @@
 """conftest file to override functions in my app"""
-import pytest
 from unittest.mock import patch
+import pytest
 from app.tests.mock_data import mock_authenticate_with_ldap
 
 @pytest.fixture
