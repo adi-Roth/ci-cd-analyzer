@@ -1,10 +1,6 @@
 """Unitests for app/routers/*.py"""
 from fastapi.testclient import TestClient
 from app.main import app
-from app.routers.platform import get_db
-from app.tests.mock_data import override_get_db
-
-app.dependency_overrides[get_db] = override_get_db
 
 client = TestClient(app)
 
