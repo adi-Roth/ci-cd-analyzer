@@ -1,8 +1,7 @@
 """Contains deps for my unitests"""
-from unittest.mock import AsyncMock
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from ..database import Base, get_db
+from app.database import Base
 from app.models import User
 
 # Mock LDAP authentication function
