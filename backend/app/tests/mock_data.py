@@ -2,12 +2,11 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from app.database import Base
-from app.models import User
 
 # Mock LDAP authentication function
-async def mock_authenticate_with_ldap(user: User):
+async def mock_authenticate_with_ldap(username: str, password: str):
     """Override function for ldap authentication"""
-    if user.username == "e029863" and user.password == "e029863":
+    if username == "e029863" and password == "e029863":
         return True
     return False
 

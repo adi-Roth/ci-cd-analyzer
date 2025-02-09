@@ -30,4 +30,4 @@ jobs:
         pylint $(git ls-files '*.py')
     - name: Running unitests
       run: |
-        pytest backend/app/tests/test_routes.py
+        pytest backend/app/tests/test_routes.py -s
