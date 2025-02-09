@@ -2,7 +2,9 @@
  This repo contain backend and frontend for browser extension that analyze your ci/cd pipelines based on your repos
 
 ---
-
+[![Test Backend](https://github.com/adi-Roth/ci-cd-analyzer/actions/workflows/test-backend.yml/badge.svg)](https://github.com/adi-Roth/ci-cd-analyzer/actions/workflows/test-backend.yml)
+[![Build and Push Docker Image](https://github.com/adi-Roth/ci-cd-analyzer/actions/workflows/build-backend.yml/badge.svg)](https://github.com/adi-Roth/ci-cd-analyzer/actions/workflows/build-backend.yml)
+---
 # PostgresSQL Structure
 ``` mermaid
 erDiagram
