@@ -1,7 +1,6 @@
 """Unitests for app/routers/*.py"""
 from unittest.mock import patch
 from fastapi.testclient import TestClient
-from app.main import app
 
 with patch("app.database.init_db", return_value=None):
     from app.main import app
